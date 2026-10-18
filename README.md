@@ -4,7 +4,8 @@ This is a 3rd party add-on to the [Tobacconist](https://github.com/diggydwarff/t
 This mod adds various cigarette packs and a cigar box to the game, where you can store Tobacconist cigarettes and cigars respectively.
 
 NeoForge 1.21.1 only. \
-This mod has been tested to work with Tobacconist 4.2.0 Beta 2, but should work with 4.1.0 stable as well.
+This mod has been tested to work with Tobacconist 4.2.0 Beta 2, but should work with 4.1.0 stable as well. \
+Install on both Client and Server.
 
 EMI/JEI recommended.
 
