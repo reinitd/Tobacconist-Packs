@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "G",
+    "L"
+  ],
+  "key": {
+    "G": { "item": "minecraft:glass_pane" },
+    "L": { "tag": "minecraft:spruce_logs" }
+  },
+  "result": {
+    "id": "tobacconistpacks:cigar_box_spruce",
+    "count": 1
+  }
+}

@@ -1,69 +1,58 @@
 package com.reinitd.tobacconistpacks;
 
+
+import com.reinitd.tobacconistpacks.component.ModDataComponents;
+import com.reinitd.tobacconistpacks.item.ModItems;
+import com.reinitd.tobacconistpacks.menu.ModMenus;
+import com.reinitd.tobacconistpacks.recipe.ModRecipes;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
+import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+
 @Mod(TobacconistPacks.MODID)
 public class TobacconistPacks {
     public static final String MODID = "tobacconistpacks";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public TobacconistPacks(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
-        NeoForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModItems.ITEMS.register(modEventBus);
+        ModDataComponents.DATA_COMPONENTS.register(modEventBus);
+        ModMenus.MENUS.register(modEventBus);
+        ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
-    }
+    private static final ResourceKey<CreativeModeTab> TOBACCONIST_TAB = ResourceKey.create(
+            Registries.CREATIVE_MODE_TAB,
+            ResourceLocation.fromNamespaceAndPath("tobacconistmod", "tobacconistmod")
+    );
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-
+        if (event.getTabKey() == TOBACCONIST_TAB) {
+            event.accept(ModItems.CIGARETTE_PACK_BLANK.get());
+            event.accept(ModItems.CIGARETTE_PACK_AMERICAN_SPIRIT_BLACK.get());
+            event.accept(ModItems.CIGARETTE_PACK_AMERICAN_SPIRIT_LIGHT_BLUE.get());
+            event.accept(ModItems.CIGARETTE_PACK_CAMEL_BLUE.get());
+            event.accept(ModItems.CIGARETTE_PACK_CAMEL_GOLD.get());
+            event.accept(ModItems.CIGARETTE_PACK_CAMEL_ROYAL.get());
+            event.accept(ModItems.CIGARETTE_PACK_CHESTERFIELD_FILTERS.get());
+            event.accept(ModItems.CIGARETTE_PACK_LM_BLUE.get());
+            event.accept(ModItems.CIGARETTE_PACK_MARLBORO_GOLD.get());
+            event.accept(ModItems.CIGARETTE_PACK_MARLBORO_RED.get());
+            event.accept(ModItems.CIGARETTE_PACK_NEWPORT.get());
+            event.accept(ModItems.CIGAR_BOX_SPRUCE.get());
+        }
     }
 }
