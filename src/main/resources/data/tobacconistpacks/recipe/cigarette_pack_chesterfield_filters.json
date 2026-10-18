@@ -1,0 +1,20 @@
+{
+  "type": "tobacconistpacks:pack_branding",
+  "group": "cigarette_pack_branding",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tobacconistpacks:cigarette_pack_blank"
+    },
+    {
+      "tag": "c:dyes/red"
+    },
+    {
+      "item": "minecraft:white_wool"
+    }
+  ],
+  "result": {
+    "id": "tobacconistpacks:cigarette_pack_chesterfield_filters",
+    "count": 1
+  }
+}

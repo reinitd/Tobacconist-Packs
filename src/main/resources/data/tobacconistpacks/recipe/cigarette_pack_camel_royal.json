@@ -1,0 +1,23 @@
+{
+  "type": "tobacconistpacks:pack_branding",
+  "group": "cigarette_pack_branding",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tobacconistpacks:cigarette_pack_blank"
+    },
+    {
+      "tag": "c:dyes/brown"
+    },
+    {
+      "tag": "c:dyes/red"
+    },
+    {
+      "item": "minecraft:gold_nugget"
+    }
+  ],
+  "result": {
+    "id": "tobacconistpacks:cigarette_pack_camel_royal",
+    "count": 1
+  }
+}
