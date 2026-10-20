@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:pale_oak_logs",
+      "required": false
+    },
+    {
+      "id": "#c:logs/pale_oak",
+      "required": false
+    }
+  ]
+}

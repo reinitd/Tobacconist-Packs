@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "G",
+    "L"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "L": {
+      "tag": "minecraft:oak_logs"
+    }
+  },
+  "result": {
+    "id": "tobacconistpacks:cigar_box_oak",
+    "count": 1
+  }
+}

@@ -1,35 +1,53 @@
 # Tobacconist: Packs
 
 This is a 3rd party add-on to the [Tobacconist](https://github.com/diggydwarff/tobacconist) Minecraft mod. \
-This mod adds various cigarette packs and a cigar box to the game, where you can store Tobacconist cigarettes and cigars respectively.
+This mod adds various cigarette packs and cigar boxes to the game, where you can store Tobacconist cigarettes and cigars respectively.
 
-NeoForge 1.21.1 only. \
-This mod has been tested to work with Tobacconist 4.2.0 Beta 2, but should work with 4.1.0 stable as well. \
+NeoForge 1.21.1 only (NeoForge 21.1.256 or newer). \
+Requires Tobacconist 4.1.0 or newer. Tested to work with Tobacconist 4.2.0 Beta 2, and should work with 4.1.0 stable as well. \
 Install on both Client and Server.
 
 EMI/JEI recommended.
 
 ## Cigarette Packs
 
-To get the stylized cigarette packs, you must first craft a blank pack, which is a 2x3 grid of paper.
+Each pack holds 20 cigarettes. Right click a pack to open it.
+
+To get the stylized cigarette packs, you must first craft a blank pack, which is a 2x3 grid of paper. \
+Then craft the blank pack with the ingredients below (shapeless). Any cigarettes already in the blank pack stay in the branded pack. \
+Only blank packs can be branded.
 
 | Pack | Blank pack + |
 |---|---|
-| American Spirit Black | black dye + arrow |
-| American Spirit Light Blue | light blue dye + arrow |
+| American Spirit Black | arrow + black dye |
+| American Spirit Light Blue | arrow + light blue dye |
 | Camel Blue | brown dye + blue dye |
+| Camel Crush | brown dye + snowball |
 | Camel Gold | brown dye + yellow dye |
 | Camel Royal | brown dye + red dye + gold nugget |
 | Chesterfield Filters (Vintage) | red dye + white wool |
+| LD Blue | gunpowder + blue dye |
 | L&M Blue | blue dye + white dye |
-| Marlboro Gold | yellow dye + leather |
-| Marlboro Red | red dye + leather |
+| Lucky Strike Red | flint + red dye |
+| Marlboro Gold | leather + yellow dye |
+| Marlboro Red | leather +  red dye |
 | Newport | cyan dye + snowball |
 
-## Cigar Box
+## Cigar Boxes
 
-Glass pane above a spruce log. More wood types to come. \
-Has a dynamic texture dictated by the amount of cigars inside.
+Each box holds 9 cigars. Right click a box to open it. \
+Has a dynamic texture dictated by the amount of cigars inside (empty, quarter, half, three quarter, full).
+
+Craft a glass pane above a log (or wood, stripped log or stripped wood) of the matching type:
+
+| Box | Glass pane above |
+|---|---|
+| Oak, Spruce, Birch, Jungle, Acacia, Dark Oak, Mangrove, Cherry | that wood's log |
+| Pale Oak | pale oak log, **only with a mod that backports pale oak** (pale oak isn't in vanilla 1.21.1). Obtainable in Creative. |
+| Crimson, Warped | that stem |
+| Otherworldly (chorus) | chorus flower |
+
+Without a pale oak backport, the Pale Oak Cigar Box is only available in creative. If your backport's logs aren't recognized, their item ID can be added to `data/tobacconistpacks/tags/item/pale_oak_logs.json`.
 
 ## Credits
 
@@ -39,7 +57,7 @@ Has a dynamic texture dictated by the amount of cigars inside.
 
 ## License
 
-The code is licensed under MIT, while the textures and logo are under CC-BY-NC-ND 4.0.
+The code is licensed under MIT ([LICENSE](LICENSE)), while the textures and logo are under CC-BY-NC-ND 4.0 ([LICENSE-ASSETS](LICENSE-ASSETS)).
 
 ## Disclaimers
 

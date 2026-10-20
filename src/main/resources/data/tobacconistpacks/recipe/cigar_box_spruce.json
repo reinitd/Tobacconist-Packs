@@ -6,8 +6,12 @@
     "L"
   ],
   "key": {
-    "G": { "item": "minecraft:glass_pane" },
-    "L": { "tag": "minecraft:spruce_logs" }
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "L": {
+      "tag": "minecraft:spruce_logs"
+    }
   },
   "result": {
     "id": "tobacconistpacks:cigar_box_spruce",

@@ -6,6 +6,7 @@ import com.reinitd.tobacconistpacks.item.CigarBoxItem;
 import com.reinitd.tobacconistpacks.item.CigarBoxItemHandler;
 import com.reinitd.tobacconistpacks.item.ModItems;
 import com.reinitd.tobacconistpacks.item.PackItemHandler;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -16,24 +17,16 @@ public class ModCapabilities {
     private static final int CIGARETTE_COUNT = 20;
     @SubscribeEvent
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        // Cigarette packs
         event.registerItem(Capabilities.ItemHandler.ITEM,
                 (stack, ctx) -> new PackItemHandler(stack, ModDataComponents.PACK_CONTENTS.get(), CIGARETTE_COUNT),
-                ModItems.CIGARETTE_PACK_BLANK,
-                ModItems.CIGARETTE_PACK_AMERICAN_SPIRIT_BLACK,
-                ModItems.CIGARETTE_PACK_AMERICAN_SPIRIT_LIGHT_BLUE,
-                ModItems.CIGARETTE_PACK_CAMEL_BLUE,
-                ModItems.CIGARETTE_PACK_CAMEL_GOLD,
-                ModItems.CIGARETTE_PACK_CAMEL_ROYAL,
-                ModItems.CIGARETTE_PACK_CHESTERFIELD_FILTERS,
-                ModItems.CIGARETTE_PACK_LM_BLUE,
-                ModItems.CIGARETTE_PACK_MARLBORO_GOLD,
-                ModItems.CIGARETTE_PACK_MARLBORO_RED,
-                ModItems.CIGARETTE_PACK_NEWPORT
+                ModItems.CIGARETTE_PACKS.values().toArray(new ItemLike[0])
         );
-        // Boxes store their contents in the same component type as packs; each handler filters what goes in
+
+        // Cigar boxes
         event.registerItem(Capabilities.ItemHandler.ITEM,
                 (stack, ctx) -> new CigarBoxItemHandler(stack, ModDataComponents.PACK_CONTENTS.get(), CigarBoxItem.SLOTS),
-                ModItems.CIGAR_BOX_SPRUCE
+                ModItems.CIGAR_BOXES.values().toArray(new ItemLike[0])
         );
     }
 }

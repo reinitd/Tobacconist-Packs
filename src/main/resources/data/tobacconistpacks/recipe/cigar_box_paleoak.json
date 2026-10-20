@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "tobacconistpacks:pale_oak_logs"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "G",
+    "L"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "L": {
+      "tag": "tobacconistpacks:pale_oak_logs"
+    }
+  },
+  "result": {
+    "id": "tobacconistpacks:cigar_box_paleoak",
+    "count": 1
+  }
+}

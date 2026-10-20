@@ -41,18 +41,8 @@ public class TobacconistPacks {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == TOBACCONIST_TAB) {
-            event.accept(ModItems.CIGARETTE_PACK_BLANK.get());
-            event.accept(ModItems.CIGARETTE_PACK_AMERICAN_SPIRIT_BLACK.get());
-            event.accept(ModItems.CIGARETTE_PACK_AMERICAN_SPIRIT_LIGHT_BLUE.get());
-            event.accept(ModItems.CIGARETTE_PACK_CAMEL_BLUE.get());
-            event.accept(ModItems.CIGARETTE_PACK_CAMEL_GOLD.get());
-            event.accept(ModItems.CIGARETTE_PACK_CAMEL_ROYAL.get());
-            event.accept(ModItems.CIGARETTE_PACK_CHESTERFIELD_FILTERS.get());
-            event.accept(ModItems.CIGARETTE_PACK_LM_BLUE.get());
-            event.accept(ModItems.CIGARETTE_PACK_MARLBORO_GOLD.get());
-            event.accept(ModItems.CIGARETTE_PACK_MARLBORO_RED.get());
-            event.accept(ModItems.CIGARETTE_PACK_NEWPORT.get());
-            event.accept(ModItems.CIGAR_BOX_SPRUCE.get());
+            ModItems.CIGARETTE_PACKS.values().forEach(box -> event.accept(box.get()));
+            ModItems.CIGAR_BOXES.values().forEach(box -> event.accept(box.get()));
         }
     }
 }

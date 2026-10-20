@@ -16,6 +16,7 @@ import com.reinitd.tobacconistpacks.client.CigarBoxScreen;
 import com.reinitd.tobacconistpacks.item.CigarBoxItem;
 import com.reinitd.tobacconistpacks.item.ModItems;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = TobacconistPacks.MODID, dist = Dist.CLIENT)
@@ -33,8 +34,12 @@ public class TobacconistPacksClient {
 
         // Cigar box fill textures: the model's overrides pick a texture from this value.
         // ItemProperties.register is not thread safe, so it runs on the main thread
-        event.enqueueWork(() -> ItemProperties.register(ModItems.CIGAR_BOX_SPRUCE.get(), CigarBoxItem.FILL_PROPERTY,
-                (stack, level, entity, seed) -> CigarBoxItem.getFillLevel(stack)));
+        event.enqueueWork(() -> {
+            for (DeferredItem<CigarBoxItem> box : ModItems.CIGAR_BOXES.values()) {
+                ItemProperties.register(box.get(), CigarBoxItem.FILL_PROPERTY,
+                        (stack, level, entity, seed) -> CigarBoxItem.getFillLevel(stack));
+            }
+        });
     }
 
     @SubscribeEvent
